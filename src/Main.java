@@ -8,8 +8,7 @@ public class Main {
         l2.receiveCall("789456123");
 
         System.out.println(l2.answerCall());
+        l1.callNumber("789456123"); // for busy check
+        //if another call is already continuing then no other call can be made to the same number or it should return busy
     }
-    /*
-    * sir if another call is already continuing then no other call can be made to the same number or it should return busy
-     * */
 }

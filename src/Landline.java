@@ -5,10 +5,14 @@ public class Landline implements Phone{
     private boolean isPowerOn;
     private boolean isRinging;
 
+    private boolean isBusy;
+
     public Landline(String phoneNumber) {
         this.phoneNumber = phoneNumber;
         isRinging = false;
         isPowerOn = true;
+
+        isBusy = false;
     }
 
     @Override
@@ -18,8 +22,12 @@ public class Landline implements Phone{
 
     @Override
     public void callNumber(String phoneNo) {
-        if(isPowerOn == true){
-            System.out.println("dialing a no"+phoneNo);
+        if(isPowerOn == true && isBusy == false){
+            System.out.println("dialing a no "+phoneNo);
+            isBusy = true;
+        }
+        else if(isBusy == true){
+            System.out.println("BUSY on another call");
         }
         else{
             System.out.println("off");
